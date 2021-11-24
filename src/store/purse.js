@@ -14,6 +14,17 @@ class Purse {
     makeAutoObservable(this);
     }
 
+    get total() {
+
+        const total = Object.entries(this.cash)
+            .map((el) => Number(el[0]) * el[1])
+            .reduce((el, acc) => {
+                return acc + el
+            }, 0)
+        console.log(total);
+
+        return total
+    }
     increment(value) {
         console.log(value);
         // console.log(cash['5000'])

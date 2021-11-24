@@ -12,6 +12,39 @@ class ATM {
     constructor() {
         makeAutoObservable(this)
     }
+
+    get total() {
+        // const array = Object.entries(this.cash)
+        // console.log(array);
+        // console.log(array[0]);
+        // console.log(array[0][0]);
+        // const normArr = array.map((el) => Number(el[0]) * el[1])
+        // console.log(normArr);
+        // const result = normArr.reduce((el, acc) => {
+        //  return acc+el
+        // }, 0)
+        // console.log(result);
+
+        const total = Object.entries(this.cash)
+            .map((el) => Number(el[0]) * el[1])
+        .reduce((el, acc) => {
+         return acc+el
+        }, 0)
+        console.log(total);
+        // const total = array.reduce((el, acc) => {
+        //     console.log('el',el);
+        //     console.log('el[0]', el[0]);
+        //     return acc.push(Number(el[0])*el[1])
+        // }, [])
+        // console.log(total);
+        // const total = array.reduce((el, acc) => {
+        //     console.log('el',el);
+        //     console.log('el[0]', el[0]);
+        //     return acc+ Number(el[0])*el[1]
+        // }, 0)
+        return total
+
+    }
     increment(value) {
         // console.log(cash['5000'])
         console.log(value);

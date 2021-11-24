@@ -4,6 +4,7 @@ import { useState } from "react";
 // import purse from './store/purse'
 
 import AddCash from "./components/AddCash";
+import GetCash from "./components/GetCash";
 
 // const App = observer(() =>{
 function App() {
@@ -40,8 +41,12 @@ function App() {
     setIsGet(true);
     setIsGreeting(false)
   };
-  const onBtnBackClick = () => {
+  const onBtnAddBackClick = () => {
     setIsAdd(false)
+    setIsGreeting(true)
+  }
+  const onBtnGetBackClick = () => {
+    setIsGet(false)
     setIsGreeting(true)
   }
 
@@ -60,7 +65,8 @@ function App() {
           </>
         )}
 
-      {isAdd && <AddCash onBtnClick = {onBtnBackClick} />}
+      {isAdd && <AddCash onBtnClick = {onBtnAddBackClick} />}
+      {isGet && <GetCash onBtnClick = {onBtnGetBackClick} />}
 
       {/* <form onSubmit={onSubmitForm}>
         <label>
