@@ -1,12 +1,12 @@
 // import { observer } from 'mobx-react-lite'
-// import { useState } from 'react'
+import { useState } from "react";
 // import atm from './store/atm'
 // import purse from './store/purse'
 
 import AddCash from "./components/AddCash";
 
 // const App = observer(() =>{
-function App () {
+function App() {
   // const [addCash, setAddCash] = useState('')
   // const onInputChange = (e) => {
   //   const { name, value } = e.currentTarget
@@ -28,9 +28,39 @@ function App () {
   //   setAddCash('')
   // }
 
+  const [isAdd, setIsAdd] = useState(false);
+  const [isGet, setIsGet] = useState(false);
+  const [isGreeting, setIsGreeting] = useState(true)
+
+  const onBtnAddCashClick = (e) => {
+    setIsAdd(true);
+    setIsGreeting(false)
+  };
+  const onBtnGetCashClick = (e) => {
+    setIsGet(true);
+    setIsGreeting(false)
+  };
+  const onBtnBackClick = () => {
+    setIsAdd(false)
+    setIsGreeting(true)
+  }
+
   return (
     <>
-      <AddCash/>
+      {isGreeting && (
+          <>
+            <p>Добро пожаловать в банкомат!Выберите операцию:</p>
+
+            <button type="button" onClick={onBtnAddCashClick}>
+              Внести наличные
+            </button>
+            <button type="button" onClick={onBtnGetCashClick}>
+              Получить наличные
+            </button>
+          </>
+        )}
+
+      {isAdd && <AddCash onBtnClick = {onBtnBackClick} />}
 
       {/* <form onSubmit={onSubmitForm}>
         <label>
@@ -48,7 +78,7 @@ function App () {
 
       <p>{ atm.cash['1000']}</p>
       <p>{ purse.cash['1000']}</p> */}
-      </>
+    </>
   );
 }
 
