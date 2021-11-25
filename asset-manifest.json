@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/cash-machine/static/css/main.0eeee3a9.chunk.css",
+    "main.js": "/cash-machine/static/js/main.37244e9c.chunk.js",
+    "main.js.map": "/cash-machine/static/js/main.37244e9c.chunk.js.map",
+    "runtime-main.js": "/cash-machine/static/js/runtime-main.8756989d.js",
+    "runtime-main.js.map": "/cash-machine/static/js/runtime-main.8756989d.js.map",
+    "static/css/2.383c0125.chunk.css": "/cash-machine/static/css/2.383c0125.chunk.css",
+    "static/js/2.32610b03.chunk.js": "/cash-machine/static/js/2.32610b03.chunk.js",
+    "static/js/2.32610b03.chunk.js.map": "/cash-machine/static/js/2.32610b03.chunk.js.map",
+    "index.html": "/cash-machine/index.html",
+    "static/css/2.383c0125.chunk.css.map": "/cash-machine/static/css/2.383c0125.chunk.css.map",
+    "static/css/main.0eeee3a9.chunk.css.map": "/cash-machine/static/css/main.0eeee3a9.chunk.css.map",
+    "static/js/2.32610b03.chunk.js.LICENSE.txt": "/cash-machine/static/js/2.32610b03.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8756989d.js",
+    "static/css/2.383c0125.chunk.css",
+    "static/js/2.32610b03.chunk.js",
+    "static/css/main.0eeee3a9.chunk.css",
+    "static/js/main.37244e9c.chunk.js"
+  ]
+}
