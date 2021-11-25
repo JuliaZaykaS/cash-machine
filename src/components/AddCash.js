@@ -5,8 +5,7 @@ import purse from "../store/purse";
 
 const AddCash = observer(({onBtnClick}) => {
   const [addCash, setAddCash] = useState("");
-  // const [warning, setWarning] = useState(false);
-  // const nominals = ["5000", "2000", "1000", "500", "200", "100"];
+
   const onInputChange = (e) => {
     const { name, value } = e.currentTarget;
     switch (name) {
@@ -21,9 +20,6 @@ const AddCash = observer(({onBtnClick}) => {
 
   const onSubmitForm = (e) => {
     e.preventDefault();
-    // if (!nominals.includes(addCash)) {
-    //   setWarning(true);
-    // }
     purse.decrement(addCash);
     atm.increment(addCash);
     setAddCash("");
@@ -46,11 +42,6 @@ const AddCash = observer(({onBtnClick}) => {
 
       </form>
       <button type='button' onClick={onBtnClick}>В главное меню</button>
-
-      <p>{atm.cash["1000"]}</p>
-      <p>{purse.cash["1000"]}</p>
-      <p>{atm.cash["5000"]}</p>
-      <p>{purse.cash["5000"]}</p>
     </>
   );
 });

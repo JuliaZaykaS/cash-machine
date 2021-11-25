@@ -8,9 +8,7 @@ import {getNeededCash} from '../helpers/getNeededCash'
 const GetCash = observer(({ onBtnClick }) => {
   const [getCash, setGetCash] = useState("");
   const [limit, setLimit] = useState(false);
-  // const [warning, setWarning] = useState(false);
-    const nominals = ["5000", "2000", "1000", "500", "200", "100"];
-//   const nominals = [5000, 2000, 1000, 500, 200, 100];
+
   const onInputChange = (e) => {
     setLimit(false);
     const { name, value } = e.currentTarget;
@@ -35,42 +33,13 @@ const GetCash = observer(({ onBtnClick }) => {
       setLimit(true);
       return
     }
-    console.log('money',money);
+
     const newArr = Object.entries(money)
-    // console.log(newArr);
     newArr.forEach(el => {
-      // console.log(el);
       purse.increment(el[0], el[1])
       atm.decrement(el[0], el[1])
     })
 
-    // if (getCash <= purse.total && getCash <= atm.total) {
-    // //   if (getCash === '5000') {
-    // //       if (atm.cash[getCash] !== 0) {
-    // //           purse.increment(getCash);
-    // //           atm.decrement(getCash);
-    // //       }
-    // //     }
-    //     if (nominals.includes(getCash)) {
-    //         if (atm.cash[getCash] !== 0) {
-    //           purse.increment(getCash);
-    //           atm.decrement(getCash);
-    //       }
-    //     }
-    //     if (Number(getCash) > 5000) {
-
-    //         const balance = Number(getCash)
-
-    //     }
-
-    // }
-    //   if (getCash > 5000) {
-
-    //   }
-    //   setLimit(false)
-
-    // purse.decrement(getCash);
-    // atm.increment(getCash);
     setGetCash("");
   };
 
@@ -98,14 +67,6 @@ const GetCash = observer(({ onBtnClick }) => {
       <button type="button" onClick={onBtnClick}>
         В главное меню
       </button>
-
-      <p>atm {atm.cash["5000"]}</p>
-      <p>purse{purse.cash["5000"]}</p>
-      <p>atm {atm.cash["1000"]}</p>
-      <p>purse{purse.cash["1000"]}</p>
-      <p>atm total{atm.total}</p>
-      <p>purse total{purse.total}</p>
-      <p>card cash{card.cash}</p>
     </>
   );
 });

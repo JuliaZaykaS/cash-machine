@@ -8,16 +8,11 @@ class Card {
     }
 
     increment(value) {
-        console.log(value);
-        // console.log(cash['5000'])
         this.cash+=Number(value)
 
     }
     decrement(value) {
-        console.log(value);
         this.cash-=Number(value)
-
-
     }
 }
 
