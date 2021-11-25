@@ -1,4 +1,4 @@
-const decrement = (cash, value,quantity) => {
+const decrement = (cash: { [x: string]: number }, value: string, quantity: number) => {
     switch (value) {
             case '5000':
                 cash['5000'] -=quantity

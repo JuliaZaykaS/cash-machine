@@ -8,11 +8,11 @@ function App() {
   const [isGet, setIsGet] = useState(false);
   const [isGreeting, setIsGreeting] = useState(true)
 
-  const onBtnAddCashClick = (e) => {
+  const onBtnAddCashClick = () => {
     setIsAdd(true);
     setIsGreeting(false)
   };
-  const onBtnGetCashClick = (e) => {
+  const onBtnGetCashClick = () => {
     setIsGet(true);
     setIsGreeting(false)
   };

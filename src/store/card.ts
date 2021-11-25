@@ -7,11 +7,11 @@ class Card {
     makeAutoObservable(this);
     }
 
-    increment(value) {
+    increment(value:string) {
         this.cash+=Number(value)
 
     }
-    decrement(value) {
+    decrement(value:string) {
         this.cash-=Number(value)
     }
 }

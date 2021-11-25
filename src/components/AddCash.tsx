@@ -1,13 +1,14 @@
 import { observer } from "mobx-react-lite";
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import atm from "../store/atm";
 import purse from "../store/purse";
 
-const AddCash = observer(({onBtnClick}) => {
+type funcClick = () => void
+const AddCash = observer(({ onBtnClick }: { onBtnClick: funcClick }) => {
   const [addCash, setAddCash] = useState("");
 
-  const onInputChange = (e) => {
-    const { name, value } = e.currentTarget;
+  const onInputChange = (e: ChangeEvent) => {
+    const { name, value } = e.currentTarget as HTMLTextAreaElement;
     switch (name) {
       case "addCash":
         setAddCash(value);
@@ -18,10 +19,10 @@ const AddCash = observer(({onBtnClick}) => {
     }
   };
 
-  const onSubmitForm = (e) => {
+  const onSubmitForm = (e: FormEvent) => {
     e.preventDefault();
-    purse.decrement(addCash);
-    atm.increment(addCash);
+    purse.decrement(addCash, 1);
+    atm.increment(addCash, 1);
     setAddCash("");
   };
 

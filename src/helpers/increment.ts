@@ -1,4 +1,4 @@
-const increment = (cash, value,quantity) => {
+const increment = (cash:{ [x: string]: number }, value:string,quantity:number) => {
     switch (value) {
             case '5000':
                 cash['5000'] +=quantity

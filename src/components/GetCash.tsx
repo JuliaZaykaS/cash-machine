@@ -4,14 +4,16 @@ import atm from "../store/atm";
 import purse from "../store/purse";
 import card from '../store/card'
 import {getNeededCash} from '../helpers/getNeededCash'
+import React from "react";
 
-const GetCash = observer(({ onBtnClick }) => {
+type funcClick = () => void
+const GetCash = observer(({ onBtnClick }: { onBtnClick: funcClick }) => {
   const [getCash, setGetCash] = useState("");
   const [limit, setLimit] = useState(false);
 
-  const onInputChange = (e) => {
+  const onInputChange = (e: React.ChangeEvent) => {
     setLimit(false);
-    const { name, value } = e.currentTarget;
+    const { name, value } = e.currentTarget as HTMLTextAreaElement;
     switch (name) {
       case "getCash":
         setGetCash(value);
@@ -22,19 +24,20 @@ const GetCash = observer(({ onBtnClick }) => {
     }
   };
 
-  const onSubmitForm = (e) => {
+  const onSubmitForm = (e: React.FormEvent) => {
     e.preventDefault();
-    if (getCash > card.cash || getCash > atm.total) {
+    if (Number(getCash) > card.cash || Number(getCash) > atm.total) {
       setLimit(true);
       return
     }
-    const money = getNeededCash(getCash, atm.cash)
+    const money = getNeededCash(Number(getCash), atm.cash)
     if (!money) {
       setLimit(true);
       return
     }
 
     const newArr = Object.entries(money)
+
     newArr.forEach(el => {
       purse.increment(el[0], el[1])
       atm.decrement(el[0], el[1])
@@ -45,7 +48,6 @@ const GetCash = observer(({ onBtnClick }) => {
 
   return (
     <>
-      {/* <p>Банкомат принимает купюры номиналом 5000, 2000, 1000, 500, 200 и 100</p> */}
       <form onSubmit={onSubmitForm}>
         <label>
           Введите сумму кратную 100

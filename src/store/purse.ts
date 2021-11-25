@@ -4,12 +4,12 @@ import incrementFunc from '../helpers/increment'
 
 class Purse {
     cash = {
-        '5000': 0,
-        '2000': 1,
-        '1000': 4,
-        '500': 0,
-        '200': 0,
-        '100': 2,
+        5000: 0,
+        2000: 1,
+        1000: 4,
+        500: 0,
+        200: 0,
+        100: 2,
     }
 
   constructor() {
@@ -26,10 +26,10 @@ class Purse {
 
         return total
     }
-    increment(value, quantity) {
+    increment(value:string, quantity:number | any) {
         incrementFunc(this.cash, value, quantity = 1)
     }
-    decrement(value, quantity) {
+    decrement(value:string, quantity:number | any) {
         decrementFunc(this.cash, value, quantity=1)
 
     }
