@@ -1,12 +1,14 @@
+import React from "react";
 import { observer } from "mobx-react-lite";
 import { useState } from "react";
 import atm from "../store/atm";
 import purse from "../store/purse";
-import card from '../store/card'
-import {getNeededCash} from '../helpers/getNeededCash'
-import React from "react";
+import card from "../store/card";
+import { getNeededCash } from "../helpers/getNeededCash";
+import { Button, Form, InputGroup, Badge } from "react-bootstrap";
+import s from "../App.module.css";
 
-type funcClick = () => void
+type funcClick = () => void;
 const GetCash = observer(({ onBtnClick }: { onBtnClick: funcClick }) => {
   const [getCash, setGetCash] = useState("");
   const [limit, setLimit] = useState(false);
@@ -28,50 +30,50 @@ const GetCash = observer(({ onBtnClick }: { onBtnClick: funcClick }) => {
     e.preventDefault();
     if (Number(getCash) > card.cash || Number(getCash) > atm.total) {
       setLimit(true);
-      return
+      return;
     }
-    const money = getNeededCash(Number(getCash), atm.cash)
+    const money = getNeededCash(Number(getCash), atm.cash);
     if (!money) {
       setLimit(true);
-      return
+      return;
     }
 
-    const newArr = Object.entries(money)
+    const newArr = Object.entries(money);
 
-    newArr.forEach(el => {
-      purse.increment(el[0], el[1])
-      atm.decrement(el[0], el[1])
-    })
+    newArr.forEach((el) => {
+      purse.increment(el[0], el[1]);
+      atm.decrement(el[0], el[1]);
+    });
 
     setGetCash("");
   };
 
   return (
     <>
-      <form onSubmit={onSubmitForm}>
-        <label>
-          Введите сумму кратную 100
-          <input
+      <Form onSubmit={onSubmitForm} className={s.form}>
+        <Form.Group className="mb-3">
+          <InputGroup.Text>Введите сумму кратную 100</InputGroup.Text>
+          <Form.Control
             type="text"
             name="getCash"
             value={getCash}
             onChange={onInputChange}
-          ></input>
-        </label>
-        <button type="submit">Получить наличные</button>
-      </form>
+          />
+        </Form.Group>
+        <Button type="submit" variant="outline-success">
+          Получить наличные
+        </Button>
+      </Form>
       {limit && (
-        <p>
-          Операция не может быть выполнена.Введите другую сумму или заберите
-          карту
-        </p>
+        <h3>
+          <Badge bg="danger">Операция не может быть выполнена.</Badge>
+          <Badge bg="danger">Введите другую сумму или заберите карту</Badge>
+        </h3>
       )}
-      <button type="button" onClick={onBtnClick}>
+      <Button type="button" variant="outline-danger" onClick={onBtnClick}>
         В главное меню
-      </button>
+      </Button>
     </>
   );
 });
 export default GetCash;
-
-

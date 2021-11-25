@@ -2,8 +2,10 @@ import { observer } from "mobx-react-lite";
 import { ChangeEvent, FormEvent, useState } from "react";
 import atm from "../store/atm";
 import purse from "../store/purse";
+import { Button, Form, InputGroup, Badge } from "react-bootstrap";
+import s from "../App.module.css";
 
-type funcClick = () => void
+type funcClick = () => void;
 const AddCash = observer(({ onBtnClick }: { onBtnClick: funcClick }) => {
   const [addCash, setAddCash] = useState("");
 
@@ -28,21 +30,27 @@ const AddCash = observer(({ onBtnClick }: { onBtnClick: funcClick }) => {
 
   return (
     <>
-      <p>Банкомат принимает купюры номиналом 5000, 2000, 1000, 500, 200 и 100</p>
-      <form onSubmit={onSubmitForm}>
-        <label>
-          Внесите деньги по одной купюре
-          <input
+      <h4 className={s.title}>
+        <Badge bg="info"> Банкомат принимает купюры номиналом:</Badge>
+        <Badge bg="info">5000, 2000, 1000, 500, 200 и 100</Badge>
+      </h4>
+      <Form onSubmit={onSubmitForm} className={s.form}>
+        <Form.Group className="mb-3">
+          <InputGroup.Text>Внесите деньги по одной купюре</InputGroup.Text>
+          <Form.Control
             type="text"
             name="addCash"
             value={addCash}
             onChange={onInputChange}
-          ></input>
-        </label>
-        <button type="submit">Внести</button>
-
-      </form>
-      <button type='button' onClick={onBtnClick}>В главное меню</button>
+          />
+        </Form.Group>
+        <Button type="submit" variant="outline-success">
+          Внести
+        </Button>
+      </Form>
+      <Button type="button" variant="outline-danger" onClick={onBtnClick}>
+        В главное меню
+      </Button>
     </>
   );
 });

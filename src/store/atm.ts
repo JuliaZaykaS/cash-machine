@@ -22,10 +22,10 @@ class ATM {
       }, 0);
     return total;
   }
-  increment(value:string, quantity:number | any) {
+  increment(value: string, quantity: number | any) {
     incrementFunc(this.cash, value, (quantity = 1));
   }
-  decrement(value:string, quantity:number | any) {
+  decrement(value: string, quantity: number | any) {
     decrementFunc(this.cash, value, (quantity = 1));
   }
 }

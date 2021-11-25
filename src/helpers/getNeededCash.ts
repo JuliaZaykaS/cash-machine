@@ -1,4 +1,7 @@
-let getNeededCash = (amountRequired: number, limits: {[x: number]: number}) => {
+let getNeededCash = (
+  amountRequired: number,
+  limits: { [x: number]: number }
+) => {
   let nominals = Object.keys(limits)
     .map(Number)
     .sort((a, b) => b - a);

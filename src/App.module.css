@@ -4,4 +4,17 @@
   margin-top: 50px;
   margin-bottom: 50px;
   text-align: center;
+  width: 500px;
+}
+
+.btnAdd {
+  margin-right: 20px;
+}
+
+.title {
+  margin-bottom: 50px;
+}
+
+.form {
+  margin-bottom: 20px;
 }
