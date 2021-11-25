@@ -45,33 +45,39 @@ class ATM {
         return total
 
     }
-    increment(value) {
+    increment(value, quantity=1) {
         // console.log(cash['5000'])
         console.log(value);
         switch (value) {
             case '5000':
                 // console.log(this.cash['5000']);
-                this.cash['5000'] +=1
+                this.cash['5000'] +=quantity
+                // this.cash['5000'] +=1
 
                 break;
             case '2000':
-                this.cash['2000'] +=1
+                this.cash['2000'] +=quantity
+                // this.cash['2000'] +=1
 
                 break;
             case '1000':
-                this.cash['1000'] +=1
+                // this.cash['1000'] +=1
+                this.cash['1000'] +=quantity
 
                 break;
             case '500':
-                this.cash['500'] +=1
+                // this.cash['500'] +=1
+                this.cash['500'] +=quantity
 
                 break;
             case '200':
-                this.cash['200'] +=1
+                // this.cash['200'] +=1
+                this.cash['200'] +=quantity
 
                 break;
             case '100':
-                this.cash['100'] +=1
+                // this.cash['100'] +=1
+                this.cash['100'] +=quantity
 
                 break;
 
@@ -79,32 +85,38 @@ class ATM {
                 break;
         }
     }
-    decrement(value) {
+    decrement(value, quantity=1) {
         console.log(value);
          switch (value) {
             case '5000':
                 // console.log(this.cash['5000']);
-                this.cash['5000'] -=1
+                // this.cash['5000'] -=1
+                this.cash['5000'] -=quantity
 
                 break;
             case '2000':
-                this.cash['2000'] -=1
+                this.cash['2000'] -=quantity
+                // this.cash['2000'] -=1
 
                 break;
             case '1000':
-                this.cash['1000'] -=1
+                // this.cash['1000'] -=1
+                this.cash['1000'] -=quantity
 
                 break;
             case '500':
-                this.cash['500'] -=1
+                this.cash['500'] -=quantity
+                // this.cash['500'] -=1
 
                 break;
             case '200':
-                this.cash['200'] -=1
+                this.cash['200'] -=quantity
+                // this.cash['200'] -=1
 
                 break;
             case '100':
-                this.cash['100'] -=1
+                this.cash['100'] -=quantity
+                // this.cash['100'] -=1
 
                 break;
 

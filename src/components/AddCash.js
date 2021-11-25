@@ -49,6 +49,8 @@ const AddCash = observer(({onBtnClick}) => {
 
       <p>{atm.cash["1000"]}</p>
       <p>{purse.cash["1000"]}</p>
+      <p>{atm.cash["5000"]}</p>
+      <p>{purse.cash["5000"]}</p>
     </>
   );
 });
